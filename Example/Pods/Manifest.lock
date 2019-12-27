@@ -1,0 +1,23 @@
+PODS:
+  - Masonry (1.1.0)
+  - ZMJRouter (0.1.0)
+
+DEPENDENCIES:
+  - Masonry (~> 1.1.0)
+  - ZMJRouter (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+
+EXTERNAL SOURCES:
+  ZMJRouter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ZMJRouter: d4e0b7122d3b9bb65704c0ed6a27a17da1671f1d
+
+PODFILE CHECKSUM: 05b77f1e36e2499457e5c90ed960671a33509f40
+
+COCOAPODS: 1.8.4

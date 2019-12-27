@@ -1,0 +1,6 @@
+framework module Pods_ZMJRouter_Example {
+  umbrella header "Pods-ZMJRouter_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

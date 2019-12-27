@@ -1,0 +1,6 @@
+framework module ZMJRouter {
+  umbrella header "ZMJRouter-umbrella.h"
+
+  export *
+  module * { export * }
+}
