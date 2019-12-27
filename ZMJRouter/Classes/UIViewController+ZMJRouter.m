@@ -21,31 +21,31 @@
 + (UIViewController *)zmj_viewControllerURLString:(NSString *)urlstring zmj_parameters:(NSDictionary *)parameters {
     
     if (![[ZMJRouterConfig zmj_sharedInstance].zmj_routes.allKeys containsObject:urlstring.zmj_allPath]) {
-        
         return nil;
     }
     
     NSString *zmj_classString = [[ZMJRouterConfig zmj_sharedInstance].zmj_routes objectForKey:urlstring.zmj_allPath];
     
     if ([zmj_classString stringByReplacingOccurrencesOfString:@" " withString:@""].length == 0) {
-        
         return nil;
     }
     
-    Class class = NSClassFromString(zmj_classString);
-    UIViewController *vc = [[class alloc] init];
+    Class zmj_class = NSClassFromString(zmj_classString);
+    UIViewController *zmj_vc = [[zmj_class alloc] init];
     
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *zmj_dic = [[NSMutableDictionary alloc] init];
     
-    [dic addEntriesFromDictionary:urlstring.zmj_parameters];
-    [dic addEntriesFromDictionary:parameters];
+    [zmj_dic addEntriesFromDictionary:urlstring.zmj_parameters];
+    [zmj_dic addEntriesFromDictionary:parameters];
     
-    for (NSString *key in [dic allKeys]) {
+    [zmj_dic.allKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        [vc setValue:[dic objectForKey:key] forKey:key];
-    }
+        NSString *zmj_key = (NSString *)obj;
+        
+        [zmj_vc setValue:[zmj_dic objectForKey:zmj_key] forKey:zmj_key];
+    }];
     
-    return vc;
+    return zmj_vc;
 }
 
 + (UIViewController *)zmj_topViewControllerWithRootViewController:(UIViewController*)rootViewController {

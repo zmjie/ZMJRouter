@@ -53,21 +53,21 @@
         return @{};
     }
     
-    NSArray *array = [self.zmj_keyValues componentsSeparatedByString:@"&"];
+    NSArray *zmj_array = [self.zmj_keyValues componentsSeparatedByString:@"&"];
     
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *zmj_dic = [[NSMutableDictionary alloc] init];
     
-    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [zmj_array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSString *keyValue = (NSString *)obj;
+        NSString *zmj_keyValue = (NSString *)obj;
         
-        if ([keyValue containsString:@"="]) {
+        if ([zmj_keyValue containsString:@"="]) {
             
-            [dic setValue:[[keyValue componentsSeparatedByString:@"="] lastObject] forKey:[[keyValue componentsSeparatedByString:@"="] firstObject]];
+            [zmj_dic setValue:[[zmj_keyValue componentsSeparatedByString:@"="] lastObject] forKey:[[zmj_keyValue componentsSeparatedByString:@"="] firstObject]];
         }
     }];
     
-    return dic;
+    return zmj_dic;
 }
 
 @end
