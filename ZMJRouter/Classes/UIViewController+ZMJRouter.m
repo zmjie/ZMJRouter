@@ -40,7 +40,7 @@
     [dic addEntriesFromDictionary:urlstring.zmj_parameters];
     [dic addEntriesFromDictionary:parameters];
     
-    for(NSString *key in [dic allKeys]){
+    for (NSString *key in [dic allKeys]) {
         
         [vc setValue:[dic objectForKey:key] forKey:key];
     }
