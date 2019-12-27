@@ -9,10 +9,9 @@
 
 @implementation ZMJRouterConfig
 
-static ZMJRouterConfig *zmj_routerConfig;
-
 + (instancetype)zmj_sharedInstance {
     
+    static ZMJRouterConfig *zmj_routerConfig;
     static dispatch_once_t zmj_oncePredicate;
     dispatch_once(&zmj_oncePredicate, ^{
         

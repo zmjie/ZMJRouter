@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZMJRouter'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'ZMJRouter'
 
 # This description is used to generate tags and improve search results.
@@ -38,5 +38,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Masonry', '~> 1.1.0'
+  # s.dependency 'Masonry', '~> 1.1.0'
 end
