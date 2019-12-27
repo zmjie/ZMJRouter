@@ -17,12 +17,12 @@ ZMJRouter is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ZMJRouter'
+pod 'ZMJRouter', '~> 0.0.2'
 ```
 
 ## Author
 
-zmjie, 1399824158@qq.com
+zmjie
 
 ## License
 
