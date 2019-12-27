@@ -9,7 +9,7 @@
 
 @implementation ZMJRouterConfig
 
- static ZMJRouterConfig *zmj_routerConfig;
+static ZMJRouterConfig *zmj_routerConfig;
 
 + (instancetype)zmj_sharedInstance {
     
