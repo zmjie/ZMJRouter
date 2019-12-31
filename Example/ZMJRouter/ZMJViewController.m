@@ -10,6 +10,8 @@
 
 #import "ZMJMacro.h"
 
+#import "ZMJProtocol.h"
+
 #import "UIColor+ZMJ.h"
 
 #import <ZMJRouter/ZMJRouter.h>
@@ -47,7 +49,14 @@
 
 - (void)zmj_initData {
     
-    _array = @[@"URL Push", @"URL Push + 回调", @"URL Present", @"URL Present + 回调"];
+    _array = @[@"URL Push",
+               @"URL Push + 回调",
+               @"URL Present",
+               @"URL Present + 回调",
+               @"Protocol Push",
+               @"Protocol Push + 回调",
+               @"Protocol Present",
+               @"Protocol Present + 回调"];
 }
 
 - (void)zmj_initView {
@@ -102,14 +111,14 @@
             
         case 0: {
             
-            [ZMJRouter zmj_pushViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=Push" zmj_animated:YES];
+            [ZMJRouter zmj_pushViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=URL Push" zmj_animated:YES];
 //            [ZMJRouter pushViewControllerURLString:@"zmj://zmjDemoVC" parameters:@{@"zmj_title" : @"Push"} animated:YES];
         }
             break;
         
         case 1: {
             
-            [ZMJRouter zmj_pushViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=Push" zmj_parameters:@{@"zmj_demoBlock" : ^(id obj) {
+            [ZMJRouter zmj_pushViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=URL Push" zmj_parameters:@{@"zmj_demoBlock" : ^(id obj) {
                 
                 NSLog(@"%@", obj);
                 
@@ -120,17 +129,65 @@
         case 2: {
             
 //            [ZMJRouter presentViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=Present" animated:YES completion:nil];
-            [ZMJRouter zmj_presentViewControllerURLString:@"zmj://zmjDemoVC" zmj_parameters:@{@"zmj_title" : @"Present"} zmj_animated:YES zmj_completion:nil];
+            [ZMJRouter zmj_presentViewControllerURLString:@"zmj://zmjDemoVC" zmj_parameters:@{@"zmj_title" : @"URL Present"} zmj_animated:YES zmj_completion:nil];
         }
             break;
             
         case 3: {
             
-            [ZMJRouter zmj_presentViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=Present" zmj_parameters:@{@"zmj_demoBlock" : ^(id obj) {
+            [ZMJRouter zmj_presentViewControllerURLString:@"zmj://zmjDemoVC?zmj_title=URL Present" zmj_parameters:@{@"zmj_demoBlock" : ^(id obj) {
                 
                 NSLog(@"%@", obj);
                 
             }} zmj_animated:YES zmj_completion:nil];
+        }
+            break;
+            
+        case 4: {
+            
+            Class zmj_class = [ZMJRouter zmj_objectForProtocol:@protocol(zmj_demoViewControllerProtocol)];
+            
+            UIViewController *zmj_vc = [[zmj_class alloc] zmj_demoViewController:@"Protocol Push" zmj_completion:nil];
+            
+            [self.navigationController pushViewController:zmj_vc animated:YES];
+        }
+            break;
+            
+        case 5: {
+            
+            Class zmj_class = [ZMJRouter zmj_objectForProtocol:@protocol(zmj_demoViewControllerProtocol)];
+            
+            UIViewController *zmj_vc = [[zmj_class alloc] zmj_demoViewController:@"Protocol Push" zmj_completion:^(id  _Nonnull obj) {
+                
+                NSLog(@"%@", obj);
+            }];
+            
+            [self.navigationController pushViewController:zmj_vc animated:YES];
+        }
+            break;
+            
+        case 6: {
+            
+            Class zmj_class = [ZMJRouter zmj_objectForProtocol:@protocol(zmj_demoViewControllerProtocol)];
+            
+            UIViewController *zmj_vc = [[zmj_class alloc] zmj_demoViewController:@"Protocol Present" zmj_completion:nil];
+            
+            UINavigationController *zmj_navVC = [[UINavigationController alloc] initWithRootViewController:zmj_vc];
+            [self.navigationController presentViewController:zmj_navVC animated:YES completion:nil];
+        }
+            break;
+            
+        case 7: {
+            
+            Class zmj_class = [ZMJRouter zmj_objectForProtocol:@protocol(zmj_demoViewControllerProtocol)];
+            
+            UIViewController *zmj_vc = [[zmj_class alloc] zmj_demoViewController:@"Protocol Present" zmj_completion:^(id  _Nonnull obj) {
+                
+                NSLog(@"%@", obj);
+            }];
+            
+            UINavigationController *zmj_navVC = [[UINavigationController alloc] initWithRootViewController:zmj_vc];
+            [self.navigationController presentViewController:zmj_navVC animated:YES completion:nil];
         }
             break;
             

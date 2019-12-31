@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)zmj_presentViewControllerURLString:(NSString *)urlstring zmj_animated:(BOOL)animated zmj_completion:(void (^ __nullable)(void))completion;
 + (void)zmj_presentViewControllerURLString:(NSString *)urlstring zmj_parameters:(NSDictionary *)parameters  zmj_animated:(BOOL)animated zmj_completion:(void (^ __nullable)(void))completion;
 
++ (void)zmj_registerProtocol:(Protocol *)protocol zmj_classString:(NSString *)classString;
+
++ (Class)zmj_objectForProtocol:(Protocol *)protocol;
+
 + (void)zmj_popOrDismissViewControllerAnimated:(BOOL)animated;
 
 @end

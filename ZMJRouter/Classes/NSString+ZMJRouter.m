@@ -12,20 +12,25 @@
 - (NSString *)zmj_scheme {
     
     if (![self containsString:@"://"]) {
+        
         return @"";
     }
+    
     return [[self componentsSeparatedByString:@"://"] firstObject];
 }
 
 - (NSString *)zmj_host {
     
     if (![self containsString:@"://"]) {
+        
         return @"";
     }
     
     if (![self containsString:@"/"]) {
+        
         return @"";
     }
+    
     return [[[self stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@%@", self.zmj_scheme, @"://"] withString:@""] componentsSeparatedByString:@"/"] firstObject];
 }
 
@@ -42,14 +47,17 @@
 - (NSString *)zmj_keyValues {
     
     if (![self containsString:@"?"]) {
+        
         return @"";
     }
+    
     return [[self componentsSeparatedByString:@"?"] lastObject];
 }
 
 - (NSDictionary *)zmj_parameters {
     
     if ([self.zmj_keyValues stringByReplacingOccurrencesOfString:@" " withString:@""].length == 0) {
+        
         return @{};
     }
     

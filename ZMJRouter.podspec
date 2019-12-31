@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZMJRouter'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'ZMJRouter'
 
 # This description is used to generate tags and improve search results.

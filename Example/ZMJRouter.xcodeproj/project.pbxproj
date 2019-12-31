@@ -63,6 +63,7 @@
 		E4328EE142D2FB7DE01FA180 /* Pods-ZMJRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMJRouter_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ZMJRouter_Tests/Pods-ZMJRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E495290F8C463AB484EAD8C9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F052E3D76DBA99562E1EB53E /* Pods_ZMJRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZMJRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A44C7523B6F0FF00B9C7E6 /* ZMJProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMJProtocol.h; sourceTree = "<group>"; };
 		F2C45FD723B597B300F0E60D /* UIColor+ZMJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZMJ.m"; sourceTree = "<group>"; };
 		F2C45FD823B597B300F0E60D /* ZMJMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJMacro.h; sourceTree = "<group>"; };
 		F2C45FD923B597B300F0E60D /* UIColor+ZMJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZMJ.h"; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 				F2C45FD823B597B300F0E60D /* ZMJMacro.h */,
 				F2C45FDD23B597B300F0E60D /* ZMJViewController.h */,
 				F2C45FDE23B597B300F0E60D /* ZMJViewController.m */,
+				F2A44C7523B6F0FF00B9C7E6 /* ZMJProtocol.h */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,

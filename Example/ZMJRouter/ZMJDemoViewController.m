@@ -8,11 +8,18 @@
 
 #import "ZMJDemoViewController.h"
 
+#import "ZMJProtocol.h"
+
 #import "UIColor+ZMJ.h"
 
 #import <ZMJRouter/ZMJRouter.h>
 
+typedef void(^ZMJDemoBlock)(id obj);
+
 @interface ZMJDemoViewController ()
+
+@property (copy, nonatomic) NSString *zmj_title;
+@property (copy, nonatomic) ZMJDemoBlock zmj_demoBlock;
 
 @end
 
@@ -21,6 +28,21 @@
 + (void)load {
     
     [ZMJRouter zmj_registerURLPattern:@"zmj://zmjDemoVC" zmj_classString:NSStringFromClass(self.class)];
+    [ZMJRouter zmj_registerProtocol:@protocol(zmj_demoViewControllerProtocol) zmj_classString:NSStringFromClass(self.class)];
+}
+
+- (UIViewController *)zmj_demoViewController:(NSString *)title zmj_completion:(void (^ __nullable)(id obj))completion {
+    
+    return [[self.class alloc] initWithTitle:title zmj_completion:completion];
+}
+
+- (instancetype)initWithTitle:(NSString *)title zmj_completion:(void (^ __nullable)(id obj))completion{
+    if (self = [super init]) {
+        
+        _zmj_title = title;
+        _zmj_demoBlock = completion;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {

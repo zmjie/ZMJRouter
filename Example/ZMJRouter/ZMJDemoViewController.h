@@ -10,12 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^ZMJDemoBlock)(id obj);
-
 @interface ZMJDemoViewController : UIViewController
 
-@property (copy, nonatomic) NSString *zmj_title;
-@property (copy, nonatomic) ZMJDemoBlock zmj_demoBlock;
+
 
 @end
 

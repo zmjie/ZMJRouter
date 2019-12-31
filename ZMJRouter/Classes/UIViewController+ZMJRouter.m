@@ -21,12 +21,14 @@
 + (UIViewController *)zmj_viewControllerURLString:(NSString *)urlstring zmj_parameters:(NSDictionary *)parameters {
     
     if (![[ZMJRouterConfig zmj_sharedInstance].zmj_routes.allKeys containsObject:urlstring.zmj_allPath]) {
+        
         return nil;
     }
     
     NSString *zmj_classString = [[ZMJRouterConfig zmj_sharedInstance].zmj_routes objectForKey:urlstring.zmj_allPath];
     
     if ([zmj_classString stringByReplacingOccurrencesOfString:@" " withString:@""].length == 0) {
+        
         return nil;
     }
     
